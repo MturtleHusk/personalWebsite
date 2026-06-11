@@ -3,7 +3,7 @@
    Hand-written CSS. No framework.
    -------------------------------------------------------------
    HOW THIS FILE IS ORGANISED
-   1. Color palette  ← change colors here (the only block most edits need)
+   1. Color palette  change colors here (the only block most edits need)
    2. Design tokens  (type, spacing, radius, shadow, motion)
    3. Base / reset
    4. Typography
@@ -18,38 +18,36 @@
    13. Responsive (media queries)
    ============================================================= */
 
-/* ====== 1. COLOR PALETTE =====================================
-   ✏️  CHANGE YOUR COLORS HERE.
-   Every color on the site is driven by these variables, so
-   editing the values below re-skins the entire page.
-   Want a blue site? Set --accent to a blue and you're done.
+/* ====== COLOR PALETTE 
+   CHANGE YOUR COLORS HERE.
+   Every color on the site is driven by these variables   
    ============================================================= */
-:root {
-  --bg:           #f6f2ea;  /* page background (warm paper) */
-  --surface:      #fffdf8;  /* cards, raised panels, inputs   */
-  --ink:          #1d1b16;  /* primary text / headings        */
-  --ink-soft:     #514c43;  /* body / secondary text          */
-  --muted:        #8a8273;  /* meta, captions, labels         */
-  --line:         #e4ddcf;  /* borders & dividers             */
-  --accent:       #c0552f;  /* ★ the one accent — links, buttons, highlights */
-  --accent-hover: #a8451f;  /* accent on hover                */
-  --accent-tint:  #f0dcd0;  /* soft accent wash (chips, fills)*/
-  --on-accent:    #fffdf8;  /* text/icons sitting on the accent */
+:root { /*light theme or default */
+  --bg:           #f6f2ea;  /* page background (warm paper)  Warm Beige */
+  --surface:      #fffdf8;  /* cards, raised panels, inputs   Off White */
+  --ink:          #1d1b16;  /* primary text / headings        Deep Brown */
+  --ink-soft:     #514c43;  /* body / secondary text          Warm Gray Brown */
+  --muted:        #8a8273;  /* meta, captions, labels         Muted Taupe */
+  --line:         #e4ddcf;  /* borders & dividers             Light Beige */
+  --accent:       #c0552f;  /* ★ the one accent - links, buttons, highlights Terracotta */
+  --accent-hover: #a8451f;  /* accent on hover                Burnt Terracotta */
+  --accent-tint:  #f0dcd0;  /* soft accent wash (chips, fills) Peach Beige */
+  --on-accent:    #fffdf8;  /* text/icons sitting on the accent  Cream*/
 }
 
 /* Dark theme — applied when <html data-theme="dark">.
    Same variable names, dark values. Edit to taste. */
-[data-theme="dark"] {
-  --bg:           #14130f;
-  --surface:      #1e1c16;
-  --ink:          #f4efe4;
-  --ink-soft:     #c4bdae;
-  --muted:        #8e8676;
-  --line:         #2e2b23;
-  --accent:       #e07a4e;
-  --accent-hover: #ef9069;
-  --accent-tint:  #2c211a;
-  --on-accent:    #14130f;
+[data-theme="dark-off"] {
+	--bg: #14130f;           /* Dark Charcoal / Almost Black */
+	--surface: #1e1c16;      /* Deep Olive Black */
+	--ink: #f4efe4;          /* Warm Off-White */
+	--ink-soft: #c4bdae;     /* Warm Beige Gray */
+	--muted: #8e8676;        /* Muted Taupe */
+	--line: #2e2b23;         /* Dark Brownish Gray */
+	--accent: #72A68A;       /* Warm Terracotta / Coral Orange */
+	--accent-hover: #ef9069; /* Brighter Terracotta */
+	--accent-tint: #2c211a;  /* Deep Brown */
+	--on-accent: #14130f;    /* Dark Charcoal */
 }
 
 /* ====== 2. DESIGN TOKENS ===================================== */
@@ -179,7 +177,7 @@ strong { color: var(--ink); font-weight: 600; }
 
 .section-head { margin-bottom: clamp(2rem, 5vw, 3.25rem); }
 .section-label { display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
-.section-num { color: var(--accent); }
+.section-num { color: var(--accent); visibility: hidden; }
 .section-title { font-size: var(--fs-h2); max-width: 18ch; }
 
 .section-head-row {
@@ -265,7 +263,8 @@ strong { color: var(--ink); font-weight: 600; }
   padding-block: .25rem;
   transition: color .2s var(--ease);
 }
-.nav-list .nav-num { font-size: .62rem; opacity: .65; }
+/* ====== number next to items on nav - hidden ====================================== */
+.nav-list .nav-num { font-size: .62rem; opacity: .65; visibility: hidden; }
 .nav-list a::after {
   content: "";
   position: absolute;
@@ -331,9 +330,21 @@ strong { color: var(--ink); font-weight: 600; }
 .hero-meta li { display: flex; flex-direction: column; gap: .25rem; font-size: .95rem; color: var(--ink); }
 .hero-meta .meta-label { display: block; }
 .meta-status { flex-direction: row !important; align-items: center; gap: .5rem; }
-.status-dot {
+.status-dot-gre {
   width: 9px; height: 9px; border-radius: 50%;
   background: #3fae6f;
+  box-shadow: 0 0 0 0 rgba(63,174,111,.5);
+  animation: pulse 2.4s infinite;
+}
+.status-dot-red {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #e50000	;
+  box-shadow: 0 0 0 0 rgba(63,174,111,.5);
+  animation: pulse 2.4s infinite;
+}
+.status-dot-yel {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #ffd700;
   box-shadow: 0 0 0 0 rgba(63,174,111,.5);
   animation: pulse 2.4s infinite;
 }
@@ -403,8 +414,25 @@ strong { color: var(--ink); font-weight: 600; }
   font-family: var(--font-mono);
   color: var(--muted);
   border: 1px solid var(--line);
+  border-radius: 9px;
+  
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;        /* This is the key */
+  gap: 0.5rem;            /* Optional: nice spacing between tags */
+  align-items: center;    /* Optional: vertical alignment */
+}
+
+.cert-tags li {
+  font-size: 0.99rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: .15rem .65rem;
+  white-space: nowrap;    /* Prevents text inside tags from wrapping */
 }
 .work-year { color: var(--muted); white-space: nowrap; }
 .work-arrow {
@@ -436,6 +464,7 @@ strong { color: var(--ink); font-weight: 600; }
 
 /* --- Skills --- */
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 2.5rem); }
+.skills-grid-mid { display: grid; grid-template-columns: gap: clamp(2rem, 4vw, 2.5rem); }
 .skill-group {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -562,4 +591,173 @@ strong { color: var(--ink); font-weight: 600; }
     transition-duration: .001ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ====== 14. HERO PHOTO  (text left · portrait right) =========
+   The portrait lives in <div class="hero-photo-wrapper"> inside
+   <div class="hero-content">. We lay that container out as a flex
+   row so the text column sits on the left and the photo on the
+   right, then stack them on narrow screens. */
+.hero-content {
+  display: flex;
+  &align-items: top;  
+  justify-content: space-between;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  min-width: 0;       /* allow the text column to shrink, not overflow */
+  max-width: 42rem;
+}
+
+/* The wrapper is the flex item; size it to the portrait so the
+   rotating ring centres on the photo. */
+.hero-photo-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 340px);
+  height: clamp(220px, 26vw, 340px);
+  visibility: hidden;
+  
+}
+.hero-photo-wrapper-mobile {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 340px);
+  height: clamp(220px, 26vw, 340px);
+  display: none;
+}
+
+.hero-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+  box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .35);
+  display: unset;
+  visibility: visible;
+  
+}
+
+.hero-photo-2 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+  box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .35);
+  visibility:hidden;
+  display: none;
+}
+
+/* Rotating accent ring behind the portrait. It sits on the wrapper
+   (not the <img>) because ::after does not render on replaced
+   elements like <img>. */
+.hero-photo-wrapper::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -14px; /*border width around headhsot*/
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent) 25%,
+    transparent 50%,
+    var(--accent) 75%,
+    transparent 100%
+  );
+  animation: rotateBorder 8s linear infinite;
+  display: unset;
+  visibility: visible;
+}
+.hero-photo-wrapper-mobile::after {
+  	
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -14px; /*border width around headhsot*/
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent) 25%,
+    transparent 50%,
+    var(--accent) 75%,
+    transparent 100%
+  );
+  animation: rotateBorder 8s linear infinite;
+  display: none;
+  visibility: hidden;
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+/* Stack the portrait below the text on narrower screens */
+@media (max-width: 860px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(2rem, 8vw, 3rem);
+  }
+  .hero-photo-wrapper { visibility: hidden; display:none;
+  align-self: center; }
+  
+  .hero-photo-wrapper-mobile { visibility:visible; display: unset; 
+  align-self: center; }
+  
+  .hero-photo-2 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+  box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .35);
+  visibility: visible;
+  display: unset;
+}
+  
+}
+
+/* Respect reduced-motion: hold the ring still */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-wrapper::after { animation: none; }
+}
+
+.videos-container {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  
+  
+}
+
+.project-video {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border: 3px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: Make it responsive */
+@media (max-width: 900px) {
+  .project-video {
+    width: 340px;
+    height: 340px;
+  }
 }
