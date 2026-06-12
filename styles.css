@@ -405,6 +405,7 @@ strong { color: var(--ink); font-weight: 600; }
   color: var(--ink);
   transition: color .25s var(--ease);
   margin-bottom: .4rem;
+  padding-top: 20px;
 }
 .work-item:hover .work-title { color: var(--accent); }
 .work-desc { color: var(--ink-soft); max-width: 52ch; margin-bottom: .85rem; }
