@@ -714,7 +714,13 @@ strong { color: var(--ink); font-weight: 600; }
   align-self: center; }
   
   .hero-photo-wrapper-mobile { visibility:visible; display: unset; 
-  align-self: center; }
+  align-self: center;  position: relative;
+  width: 280px;
+  height: 280px;
+  flex: 0 0 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;}
   
   .hero-photo-2 {
   position: relative;
@@ -728,7 +734,18 @@ strong { color: var(--ink); font-weight: 600; }
   box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .35);
   visibility: visible;
   display: unset;
+  position: relative;
+  width: 280px;
+  height: 280px;
+  flex: 0 0 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
 }
+
+.mam { padding: .6rem 1.1rem; display: none; visibility: hidden; }
+
+
   
 }
 
@@ -754,10 +771,30 @@ strong { color: var(--ink); font-weight: 600; }
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Optional: Make it responsive */
+/* Stack the Passions media vertically on mobile so each block's
+   three images line up under each other instead of overflowing in
+   a row. The square framing is preserved via aspect-ratio, and the
+   base object-fit / border / radius / shadow still apply. */
 @media (max-width: 900px) {
+.btn-sm2 { padding: .6rem 1.1rem; display: none; visibility: hidden; }
+  .videos-container {
+    flex-direction: column;
+    align-items: center;
+  }
   .project-video {
-    width: 340px;
-    height: 340px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
+.hero-photo-wrapper-mobile {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  flex: 0 0 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
