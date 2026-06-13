@@ -29,7 +29,7 @@
   --ink-soft:     #514c43;  /* body / secondary text          Warm Gray Brown */
   --muted:        #8a8273;  /* meta, captions, labels         Muted Taupe */
   --line:         #e4ddcf;  /* borders & dividers             Light Beige */
-  --accent:       #c0552f;  /* ★ the one accent - links, buttons, highlights Terracotta */
+  --accent:       #41a59b;  /* ★ the one accent - links, buttons, highlights Terracotta */
   --accent-hover: #a8451f;  /* accent on hover                Burnt Terracotta */
   --accent-tint:  #f0dcd0;  /* soft accent wash (chips, fills) Peach Beige */
   --on-accent:    #fffdf8;  /* text/icons sitting on the accent  Cream*/
@@ -797,5 +797,13 @@ strong { color: var(--ink); font-weight: 600; }
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
+}
+
+.contact-form{
+	display: none;
+}
+.hero-title{
+	COLOR: #41a59b;
+	
 }
 
