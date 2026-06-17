@@ -178,7 +178,7 @@ strong { color: var(--ink); font-weight: 600; }
 .section-head { margin-bottom: clamp(2rem, 5vw, 3.25rem); }
 .section-label { display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
 .section-num { color: var(--accent); visibility: hidden; }
-.section-title { font-size: var(--fs-h2); max-width: 18ch; }
+.section-title { font-size: var(--fs-h2); max-width: 20ch; padding-bottom: 10px}
 
 .section-head-row {
   display: flex;
@@ -485,6 +485,22 @@ strong { color: var(--ink); font-weight: 600; }
   transition: transform .2s var(--ease);
 }
 .chips li:hover { transform: translateY(-2px); }
+
+.chips-bt { display: flex; flex-wrap: wrap; gap: .55rem; padding-top:  10px; }
+.chips-bt li {
+  font-size: var(--fs-small);
+  background: var(--accent-tint);
+  color: var(--ink);
+  padding: .4rem .85rem;
+  border-radius: 999px;
+  transition: transform .2s var(--ease);
+  
+}
+.chips-bt li:hover { transform: translateY(-2px); }
+
+
+
+
 
 /* --- Contact --- */
 .section-contact { padding-bottom: clamp(5rem, 12vw, 8rem); }
@@ -805,5 +821,8 @@ strong { color: var(--ink); font-weight: 600; }
 .hero-title{
 	COLOR: #41a59b;
 	
+}
+.work-hip{
+	justify: center;
 }
 
